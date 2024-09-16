@@ -9,10 +9,10 @@ ninja
 wandb
 torch
 transformers
-vllm @ git+https://github.com/vllm-project/vllm.git
+vllm
 flash-attn
 antlr4-python3-runtime==4.11
 openai
 cohere
 alpaca-eval
-flashinfer
+nvitop

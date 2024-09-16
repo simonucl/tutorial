@@ -7,6 +7,7 @@ batch_size = 16
 model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model)
 model = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.float16, device_map="auto")
+tokenizer.pad_token = tokenizer.eos_token
 
 # Sample prompts.
 alpaca_eval_data = datasets.load_dataset("tatsu-lab/alpaca_eval", "alpaca_eval", trust_remote_code=True)["eval"]

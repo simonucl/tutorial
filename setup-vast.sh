@@ -24,12 +24,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh -y
 
-# Authenticate GitHub CLI
-echo $GH_TOKEN | gh auth login --with-token
+apt-get update && apt-get install -y git && apt-get install -y vim
 
 # Install pip packages
 pip install -r requirements.txt
 
 # Login to HuggingFace and Weights & Biases
-huggingface-cli login --token $HUGGINGFACE_TOKEN
-wandb login --api-key $WANDB_API_KEY
+# huggingface-cli login --token $HUGGINGFACE_TOKEN
+# wandb login --api-key $WANDB_API_KEY
