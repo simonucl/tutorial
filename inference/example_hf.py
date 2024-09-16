@@ -9,7 +9,7 @@ tokenizer = AutoTokenizer.from_pretrained(model)
 model = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.float16, device_map="auto")
 
 # Sample prompts.
-alpaca_eval_data = datasets.load_dataset("tatsu-lab/alpaca_eval", "alpaca_eval")["eval"]
+alpaca_eval_data = datasets.load_dataset("tatsu-lab/alpaca_eval", "alpaca_eval", trust_remote_code=True)["eval"]
 prompts = []
 for example in alpaca_eval_data:
     prompt = example["instruction"]

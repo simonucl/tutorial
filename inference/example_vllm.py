@@ -6,7 +6,7 @@ model="meta-llama/Meta-Llama-3.1-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model)
 
 # Sample prompts.
-alpaca_eval_data = datasets.load_dataset("tatsu-lab/alpaca_eval", "alpaca_eval")["eval"]
+alpaca_eval_data = datasets.load_dataset("tatsu-lab/alpaca_eval", "alpaca_eval", trust_remote_code=True)["eval"]
 prompts = []
 for example in alpaca_eval_data:
     prompt = example["instruction"]
