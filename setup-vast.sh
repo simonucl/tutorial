@@ -28,6 +28,7 @@ apt-get update && apt-get install -y git && apt-get install -y vim
 
 # Install pip packages
 pip install -r requirements.txt
+pip install flash-attn --no-build-isolation
 
 # Login to HuggingFace and Weights & Biases
 # huggingface-cli login --token $HUGGINGFACE_TOKEN

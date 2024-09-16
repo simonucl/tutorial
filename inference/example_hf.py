@@ -6,7 +6,11 @@ from tqdm import trange
 batch_size = 16
 model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model)
-model = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.float16, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model, 
+                                             torch_dtype=torch.bfloat16, 
+                                             device_map="auto",
+                                             attn_implementation="flash_attention_2",
+                                             trust_remote_code=True)
 tokenizer.pad_token = tokenizer.eos_token
 
 # Sample prompts.
